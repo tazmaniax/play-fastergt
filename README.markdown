@@ -41,14 +41,14 @@ Use dependencies.yml like this to download the plugin from my site:
 
     require:
         - play
-        - kjetland -> fastergt 1.8
+        - play-codeborne -> fastergt 1.9
     
     repositories:
-        - kjetland:
-            type:       http
-            artifact:   "http://mbknor.github.com/play-modules/[module]-[revision].zip"
+        - codeborne:
+            type: http
+            artifact: https://repo.codeborne.com/play-[module]/[module]-[revision].zip
             contains:
-                - kjetland -> *
+                - play-codeborne -> *
 
 
 

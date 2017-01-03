@@ -108,8 +108,6 @@ If you find issues, please report them here: https://github.com/mbknor/faster-gr
 
 Issues:
 
-Overwriting of variables used in #{extend}-ed templates doesn't work with %{title='123'}%, should use #{set title} instead.
-
 Unnamed closing tags do not work, instead of #{if xxx}#{/} write #{if xxx}#{/if}
 
 ---------------

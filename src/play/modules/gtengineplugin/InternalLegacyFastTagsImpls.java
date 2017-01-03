@@ -2,18 +2,16 @@ package play.modules.gtengineplugin;
 
 import groovy.lang.Closure;
 import org.apache.commons.lang.StringUtils;
-import play.cache.Cache;
 import play.data.validation.Error;
 import play.data.validation.Validation;
 import play.exceptions.TagInternalException;
 import play.exceptions.TemplateExecutionException;
-import play.exceptions.TemplateNotFoundException;
 import play.libs.Codec;
-import play.mvc.Http;
 import play.mvc.Router.ActionDefinition;
 import play.mvc.Scope.Flash;
 import play.mvc.Scope.Session;
 import play.templates.BaseTemplate.RawData;
+import play.templates.FastTags;
 import play.templates.GroovyTemplate.ExecutableTemplate;
 import play.templates.JavaExtensions;
 import play.templates.TagContext;
@@ -21,7 +19,6 @@ import play.templates.Template;
 import play.utils.HTML;
 
 import java.io.PrintWriter;
-import java.io.StringWriter;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -69,34 +66,9 @@ public class InternalLegacyFastTagsImpls {
      * @param fromLine template line number where the tag is defined
      */
     public static void _form(Map<?, ?> args, Closure body, PrintWriter out, ExecutableTemplate template, int fromLine) {
-        ActionDefinition actionDef = (ActionDefinition) args.get("arg");
-        if (actionDef == null) {
-            actionDef = (ActionDefinition) args.get("action");
-        }
-        String enctype = (String) args.get("enctype");
-        if (enctype == null) {
-            enctype = "application/x-www-form-urlencoded";
-        }
-        if (actionDef.star) {
-            actionDef.method = "POST"; // prefer POST for form ....
-        }
-        if (args.containsKey("method")) {
-            actionDef.method = args.get("method").toString();
-        }
-        if (!("GET".equals(actionDef.method) || "POST".equals(actionDef.method))) {
-            String separator = actionDef.url.indexOf('?') != -1 ? "&" : "?";
-            actionDef.url += separator + "x-http-method-override=" + actionDef.method.toUpperCase();
-            actionDef.method = "POST";
-        }
-        String encoding = Http.Response.current().encoding;
-        out.print("<form action=\"" + actionDef.url + "\" method=\"" + actionDef.method.toLowerCase() + "\" accept-charset=\""+encoding+"\" enctype=\"" + enctype + "\" " + serialize(args, "action", "method", "accept-charset", "enctype") + ">");
-        if (!("GET".equals(actionDef.method))) {
-            _authenticityToken(args, body, out, template, fromLine);
-        }
-        out.println(JavaExtensions.toString(body));
-        out.print("</form>");
+        FastTags._form(args, body, out, template, fromLine);
     }
-    
+
     /**
      * The field tag is a helper, based on the spirit of Don't Repeat Yourself. 
      * @param args tag attributes

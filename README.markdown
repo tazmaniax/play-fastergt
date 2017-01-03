@@ -10,6 +10,8 @@ See below how to download the plugin from my site.
 History:
 =============
 
+ * Version 1.9 - 3 Jan 2017
+  * Added support for empty Map in #{if}
  * Version 1.8 - 12. April 2013
   * Fixed missing-args bug when invoking some Groovy methods. If groovy method name was equal to a JavaExtension-method-name, the args to the methodcall could be null.
  * Version 1.7 - 8. May 2012

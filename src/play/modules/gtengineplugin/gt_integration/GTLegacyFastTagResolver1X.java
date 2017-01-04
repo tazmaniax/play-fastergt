@@ -118,10 +118,15 @@ public class GTLegacyFastTagResolver1X implements GTLegacyFastTagResolver {
             int fromLine = 0;
 
             m.invoke(null, args, body, out, executableTemplate, fromLine);
-        } catch (InvocationTargetException e) {
-            if ( e.getCause() instanceof TemplateExecutionException) {
+        } catch (InvocationTargetException wrapped) {
+            Throwable e = wrapped.getTargetException();
+            if (e instanceof TemplateExecutionException) {
                 // Must be transformed into GTTemplateRuntimeException
-                throw new GTTemplateRuntimeException(e.getCause().getMessage());
+                throw new GTTemplateRuntimeException(e.getMessage());
+            } else if (e instanceof RuntimeException) {
+                throw (RuntimeException) e;
+            } else if (e instanceof Error) {
+                throw (Error) e;
             } else {
                 throw new RuntimeException(e);
             }

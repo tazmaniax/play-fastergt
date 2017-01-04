@@ -116,6 +116,8 @@ Strings cannot be iterated directly using #{list s}, use #{list s.toCharArray()}
 
 There is no function ${get('var')} that returns the value set using #{set var: ''}
 
+JavaExtensions don't work inside of groovy lambdas
+
 ---------------
 
 Note if you also use the CRUD-module: The original CRUD template files uses a lot of partial-groovy-code-snipits. Since this is not supported in gt-engine, faster-groovy-templates includes its own version of these template files - with fixed syntax. You don't have to do anything special. These files are used automatically.

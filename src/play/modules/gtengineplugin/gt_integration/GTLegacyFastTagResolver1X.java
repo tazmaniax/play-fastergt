@@ -34,10 +34,8 @@ public class GTLegacyFastTagResolver1X implements GTLegacyFastTagResolver {
     }
 
     private static Object lock = new Object();
-    private static ApplicationClassloaderState _lastKnownApplicationClassloaderState = null;
+    private static ApplicationClassloaderState _lastKnownApplicationClassloaderState;
     private static Map<String, LegacyFastTag> _tagName2FastTag = new HashMap<String, LegacyFastTag>();
-
-    static Class fc = FastTags.class;
 
     private static Map<String, LegacyFastTag> getTagName2FastTag() {
         synchronized (lock) {
@@ -80,7 +78,7 @@ public class GTLegacyFastTagResolver1X implements GTLegacyFastTagResolver {
         return GTLegacyFastTagResolver1X.class.getName() + ".legacyFastTagBridge";
     }
 
-    public LegacyFastTagInfo resolveLegacyFastTag(String tagName) {
+    @Override public LegacyFastTagInfo resolveLegacyFastTag(String tagName) {
 
         LegacyFastTag tag = getTagName2FastTag().get(tagName);
 

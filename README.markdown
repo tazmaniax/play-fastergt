@@ -10,6 +10,8 @@ See below how to download the plugin from my site.
 History:
 =============
 
+ * Version 1.9.1 - 4 Jan 2017
+  * Includes some fixes made to gt-engine, e.g. support for BigDecimals in #{if}, #{extends} has access to template's variables
  * Version 1.9 - 3 Jan 2017
   * Added support for empty Map in #{if}
  * Version 1.8 - 12. April 2013

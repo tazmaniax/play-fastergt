@@ -10,6 +10,8 @@ See below how to download the plugin from my site.
 History:
 =============
 
+ * Version 1.9.2 - 9 Jan 2017
+  * Support for the latest Play 1.4.x that adds Java 8 parameter support
  * Version 1.9.1 - 4 Jan 2017
   * Includes some fixes made to gt-engine, e.g. support for BigDecimals in #{if}, #{extends} has access to template's variables
  * Version 1.9 - 3 Jan 2017

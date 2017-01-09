@@ -14,8 +14,7 @@ import play.mvc.Router;
 import play.template2.GTGroovyBase;
 import play.template2.GTJavaBase;
 import play.template2.exceptions.GTRuntimeExceptionForwarder;
-import play.template2.exceptions.GTTemplateRuntimeException;
-import play.templates.GroovyTemplate;
+import play.utils.Java;
 
 import java.lang.reflect.Method;
 import java.util.HashMap;
@@ -125,7 +124,7 @@ public class GTGroovyBase1xImpl extends GTGroovyBase {
                     try {
                         Map<String, Object> r = new HashMap<String, Object>();
                         Method actionMethod = (Method) ActionInvoker.getActionMethod(action)[1];
-                        String[] names = (String[]) actionMethod.getDeclaringClass().getDeclaredField("$" + actionMethod.getName() + computeMethodHash(actionMethod.getParameterTypes())).get(null);
+                        String[] names = Java.parameterNames(actionMethod);
                         if (param instanceof Object[]) {
                             if(((Object[])param).length == 1 && ((Object[])param)[0] instanceof Map) {
                                 r = (Map<String,Object>)((Object[])param)[0];

@@ -16,7 +16,7 @@ public class GTEnginePlugin extends PlayPlugin {
             "{module:crud}/"
     };
 
-    synchronized private void init() {
+    private synchronized void init() {
         fixTemplatesPathOrder();
         TemplateLoader.init();
     }
@@ -71,8 +71,6 @@ public class GTEnginePlugin extends PlayPlugin {
             }
         }
 
-        Template t = TemplateLoader.load(file);
-        return t;
-
+        return TemplateLoader.load(file);
     }
 }

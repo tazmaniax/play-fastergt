@@ -1,4 +1,4 @@
-Faster-Groovy-Templates module for Play! Framework 1.2.x
+Faster-Groovy-Templates module for Play! Framework 1.5.x
 =====================
 
 This is a module for Play! Framework 1 applications which replaces the default groovy template implementation with [GT-Engine](https://github.com/mbknor/gt-engine) which is [faster and uses less memory](http://kjetland.com/blog/2011/11/playframework-new-faster-groovy-template-engine/).
@@ -10,6 +10,9 @@ See below how to download the plugin from my site.
 History:
 =============
 
+ * Version 1.9.3 - 14 Jun 2017
+  * Performance improvements
+  * upgrade to gt-engine 1.0
  * Version 1.9.2 - 9 Jan 2017
   * Support for the latest Play 1.4.x that adds Java 8 parameter support
  * Version 1.9.1 - 4 Jan 2017

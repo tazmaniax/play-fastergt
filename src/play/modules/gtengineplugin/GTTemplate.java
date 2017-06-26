@@ -13,12 +13,7 @@ import play.mvc.Http;
 import play.template2.GTJavaBase;
 import play.template2.GTRenderingResult;
 import play.template2.GTTemplateLocation;
-import play.template2.GTTemplateLocationReal;
-import play.template2.exceptions.GTAppClassException;
-import play.template2.exceptions.GTCompilationExceptionWithSourceInfo;
-import play.template2.exceptions.GTRuntimeException;
-import play.template2.exceptions.GTRuntimeExceptionWithSourceInfo;
-import play.template2.exceptions.GTTemplateNotFoundWithSourceInfo;
+import play.template2.exceptions.*;
 import play.templates.Template;
 
 import java.io.ByteArrayOutputStream;
@@ -77,7 +72,7 @@ public class GTTemplate extends Template {
 
     protected GTJavaBase getGTTemplateInstance() {
         if ( gtJavaBase == null) {
-            return TemplateLoader.getGTTemplateInstance((GTTemplateLocationReal)templateLocation);
+            return TemplateLoader.getGTTemplateInstance(templateLocation);
         } else {
             return gtJavaBase;
         }

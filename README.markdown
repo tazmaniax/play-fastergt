@@ -10,6 +10,8 @@ See below how to download the plugin from my site.
 History:
 =============
 
+ * Version 1.9.4 - 27 Jun 2017
+  * Code cleanup
  * Version 1.9.3 - 14 Jun 2017
   * Performance improvements
   * upgrade to gt-engine 1.0

@@ -199,14 +199,14 @@ public class TemplateLoader {
      * @return A list of executable templates
      */
     public static List<Template> getAllTemplate() {
-        List<Template> res = new ArrayList<Template>();
+        List<Template> res = new ArrayList<>();
         for (VirtualFile virtualFile : Play.templatesPath) {
             scan(res, virtualFile);
         }
         for (VirtualFile root : Play.roots) {
             VirtualFile vf = root.child("conf/routes");
             if (vf != null && vf.exists()) {
-                Template template = load(vf);
+                load(vf);
             }
         }
         return res;

@@ -18,7 +18,7 @@ import java.util.Map;
 
 public abstract class GTJavaBase1xImpl extends GTJavaBase {
 
-    public GTJavaBase1xImpl(Class<? extends GTGroovyBase> groovyClass, GTTemplateLocation templateLocation) {
+    protected GTJavaBase1xImpl(Class<? extends GTGroovyBase> groovyClass, GTTemplateLocation templateLocation) {
         super(groovyClass, templateLocation);
     }
 

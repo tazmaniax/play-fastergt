@@ -10,6 +10,8 @@ See below how to download the plugin from my site.
 History:
 =============
 
+ * Version 1.9.5 - 09 Aug 2018
+  * Upgrade to Play 1.5.x which is Java 9 compatible
  * Version 1.9.4 - 27 Jun 2017
   * Code cleanup
  * Version 1.9.3 - 14 Jun 2017

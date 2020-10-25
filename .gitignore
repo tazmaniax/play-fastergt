@@ -1,8 +1,11 @@
 .idea
 .idea_modules
+.settings
+.DS_Store
 target
 out
 tmp
+bin
 *.iml
 *.ipr
 *.iws
